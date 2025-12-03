@@ -1,9 +1,7 @@
 const express = require('express');
-const path = require ('path'); // rutas de carpetas
 const app = express();
 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
 
 const RESTAURANT = {
     name: 'The Green Byte Bistro',

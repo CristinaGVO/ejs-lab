@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Título dinámico con nombre del restaurante + categoría -->
+  <title><%= restaurant.name %> - <%= categoryName %></title>
+</head>
+<body>
+  <%- include('./partials/nav') %>
+
+  <h1><%= categoryName %></h1>
+
+  <% if (menuItems.length === 0) { %>
+    <p>No items found for this category.</p>
+  <% } else { %>
+    <ul>
+      <% menuItems.forEach(item => { %>
+        <li>
+        <h3><%= item.name %> <%= item.rating === 5 ? '⭐' : '' %></h3>
+          <p><strong>Price:</strong> $<%= item.price.toFixed(2) %></p>
+          <p><strong>Rating:</strong> <%= item.rating %> / 5</p>
+          <p><strong>Details:</strong> <%= item.details %></p>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</body>
+</html>
